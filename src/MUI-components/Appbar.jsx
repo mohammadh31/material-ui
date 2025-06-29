@@ -12,7 +12,7 @@ const Appbar = ({ drawerWidth }) => {
           sx={{
             flexGrow: 1,
             textDecoration: "none",
-            "&:hover": { fontSize: "16.5px" },
+            "&:hover": { textShadow: "0px 0px 11px black" },
           }}
           color="inherit"
           href="/"
