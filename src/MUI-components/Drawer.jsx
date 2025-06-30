@@ -19,12 +19,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Drawerr = ({ drawerWidth, setmyMOde }) => {
   const navigate = useNavigate();
   const theme = useTheme();
-
   const currentLocateion = useLocation();
 
   return (
     <Drawer
       sx={{
+        display: { xs: "none", sm: "block" },
         width: `${drawerWidth}px`,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
@@ -35,16 +35,6 @@ const Drawerr = ({ drawerWidth, setmyMOde }) => {
       variant="permanent"
       anchor="left"
     >
-      {/* <Button
-        onClick={() => {
-          setmyMOde(theme.palette.mode === "light" ? "dark" : "light");
-        }}
-        variant="contained"
-        color="warning"
-      >
-        dark
-      </Button> */}
-
       <List>
         <ListItem
           sx={{ display: "flex", justifyContent: "center", mb: "14px" }}

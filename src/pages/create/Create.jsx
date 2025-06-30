@@ -11,7 +11,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   "&:hover": {
     // @ts-ignore
     backgroundColor: theme.palette.ali.main,
-    scale: "0.99"
+    scale: "0.99",
   },
 }));
 
