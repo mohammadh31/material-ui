@@ -5,7 +5,7 @@ import Appbar from "MUI-components/Appbar";
 import Drawerr from "MUI-components/Drawer";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { deepPurple, indigo, pink } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
 const drawerWidth = 240;
 const Root = () => {
@@ -28,7 +28,7 @@ const Root = () => {
               // contrastText: "#fff",
             },
             favColor: {
-              main: pink[500],
+              main: grey[300],
             },
           }
         : {
@@ -36,7 +36,7 @@ const Root = () => {
               main: "teal",
             },
             favColor: {
-              main: indigo[700],
+              main: grey[800],
             },
           }),
     },

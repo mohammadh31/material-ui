@@ -1,4 +1,4 @@
-import { Box, useTheme } from "@mui/system";
+import { Box } from "@mui/system";
 import "./Home.css";
 import React from "react";
 // @ts-ignore
@@ -6,7 +6,6 @@ import { Paper, Typography, IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
 
 const Home = () => {
-  const theme = useTheme();
   return (
     <Box>
       <Paper
@@ -39,10 +38,6 @@ const Home = () => {
           <Close sx={{ fontSize: "20px" }} />
         </IconButton>
       </Paper>
-
-      <Typography variant="h5" color={theme.palette.favColor.main}>
-        MHD Hawaj
-      </Typography>
     </Box>
   );
 };

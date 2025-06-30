@@ -14,11 +14,13 @@ import {
   Person2,
   Settings,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Drawerr = ({ drawerWidth, setmyMOde }) => {
   const navigate = useNavigate();
   const theme = useTheme();
+
+  const currentLocateion = useLocation();
 
   return (
     <Drawer
@@ -70,6 +72,13 @@ const Drawerr = ({ drawerWidth, setmyMOde }) => {
 
         <ListItem disablePadding>
           <ListItemButton
+            sx={{
+              bgcolor:
+                currentLocateion.pathname === "/"
+                  ? // @ts-ignore
+                    theme.palette.favColor.main
+                  : null,
+            }}
             onClick={() => {
               navigate("/");
             }}
@@ -83,6 +92,13 @@ const Drawerr = ({ drawerWidth, setmyMOde }) => {
 
         <ListItem disablePadding>
           <ListItemButton
+            sx={{
+              bgcolor:
+                currentLocateion.pathname === "/create"
+                  ? // @ts-ignore
+                    theme.palette.favColor.main
+                  : null,
+            }}
             onClick={() => {
               navigate("/create");
             }}
