@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import Appbar from "MUI-components/Appbar";
 import Drawerr from "MUI-components/Drawer";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { grey } from "@mui/material/colors";
+import getDesignTokens from "styles/myTheme";
+import { useMemo } from "react";
 
 const drawerWidth = 240;
 const Root = () => {
@@ -16,31 +17,6 @@ const Root = () => {
       ? "light"
       : "dark"
   );
-  const darkTheme = createTheme({
-    palette: {
-      // @ts-ignore
-      mode,
-      // @ts-ignore
-      ...(mode === "light"
-        ? {
-            ali: {
-              main: "#64748B",
-              // contrastText: "#fff",
-            },
-            favColor: {
-              main: grey[300],
-            },
-          }
-        : {
-            ali: {
-              main: "teal",
-            },
-            favColor: {
-              main: grey[800],
-            },
-          }),
-    },
-  });
   const [noneOrBlock, setNoneOrBlock] = useState("none");
   const [drawerType, setDrawerType] = useState("permanent");
 
@@ -53,8 +29,12 @@ const Root = () => {
     setDrawerType("permanent");
     setNoneOrBlock("none");
   };
+
+  // @ts-ignore
+  const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <div>
         <Appbar
