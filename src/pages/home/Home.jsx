@@ -14,7 +14,7 @@ const Home = () => {
           width: "366px",
           display: "flex",
           justifyContent: "space-between",
-          mt: "22px",
+          mt: { xs: 3, sm: 5 },
           pt: "27px",
           pb: "7px",
         }}

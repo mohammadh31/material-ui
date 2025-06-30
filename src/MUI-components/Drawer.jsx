@@ -16,7 +16,7 @@ import {
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Drawerr = ({ drawerWidth, setmyMOde }) => {
+const Drawerr = ({ drawerWidth, setmyMOde, noneOrBlock }) => {
   const navigate = useNavigate();
   const theme = useTheme();
   const currentLocateion = useLocation();
@@ -24,7 +24,7 @@ const Drawerr = ({ drawerWidth, setmyMOde }) => {
   return (
     <Drawer
       sx={{
-        display: { xs: "none", sm: "block" },
+        display: { xs: noneOrBlock, sm: "block" },
         width: `${drawerWidth}px`,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
