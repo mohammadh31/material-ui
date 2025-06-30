@@ -5,10 +5,11 @@ import Appbar from "MUI-components/Appbar";
 import Drawerr from "MUI-components/Drawer";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { deepPurple, indigo, pink } from "@mui/material/colors";
 
 const drawerWidth = 240;
 const Root = () => {
-  const [myMOde, setmyMOde] = useState(
+  const [mode, setmyMOde] = useState(
     localStorage.getItem("currentMode") === null
       ? "light"
       : localStorage.getItem("currentMode") === "light"
@@ -18,14 +19,29 @@ const Root = () => {
   const darkTheme = createTheme({
     palette: {
       // @ts-ignore
-      mode: myMOde,
+      mode,
       // @ts-ignore
-      ali: {
-        main: "#64748B",
-        contrastText: "#fff",
-      },
+      ...(mode === "light"
+        ? {
+            ali: {
+              main: "#64748B",
+              // contrastText: "#fff",
+            },
+            favColor: {
+              main: pink[500],
+            },
+          }
+        : {
+            ali: {
+              main: "teal",
+            },
+            favColor: {
+              main: indigo[700],
+            },
+          }),
     },
   });
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
