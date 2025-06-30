@@ -16,7 +16,13 @@ import {
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Drawerr = ({ drawerWidth, setmyMOde, noneOrBlock }) => {
+const Drawerr = ({
+  drawerWidth,
+  setmyMOde,
+  noneOrBlock,
+  drawerType,
+  hideDrawer,
+}) => {
   const navigate = useNavigate();
   const theme = useTheme();
   const currentLocateion = useLocation();
@@ -32,8 +38,12 @@ const Drawerr = ({ drawerWidth, setmyMOde, noneOrBlock }) => {
           boxSizing: "border-box",
         },
       }}
-      variant="permanent"
+      variant={drawerType}
       anchor="left"
+      open={true}
+      onClose={() => {
+        hideDrawer();
+      }}
     >
       <List>
         <ListItem

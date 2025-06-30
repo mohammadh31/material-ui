@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
-const Appbar = ({ drawerWidth, setNoneOrBlock }) => {
+const Appbar = ({ drawerWidth, showDrawer }) => {
   return (
     <AppBar
       sx={{
@@ -20,11 +20,13 @@ const Appbar = ({ drawerWidth, setNoneOrBlock }) => {
     >
       <Toolbar>
         <IconButton
+          sx={{ mr: "9px", display: { xs: "block", sm: "none" } }}
+          color="inherit"
           onClick={() => {
-            setNoneOrBlock("bolck");
+            showDrawer();
           }}
         >
-          <Menu sx={{ display: { xs: "block", sm: "none" } }} color="inherit" />
+          <Menu sx={{ alignItems: "center", display: "flex" }} />
         </IconButton>
         <Link
           sx={{

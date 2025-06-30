@@ -42,14 +42,28 @@ const Root = () => {
     },
   });
   const [noneOrBlock, setNoneOrBlock] = useState("none");
+  const [drawerType, setDrawerType] = useState("permanent");
+
+  const showDrawer = () => {
+    setDrawerType("temporary");
+    setNoneOrBlock("bolck");
+  };
+
+  const hideDrawer = () => {
+    setDrawerType("permanent");
+    setNoneOrBlock("none");
+  };
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div>
         <Appbar
           // @ts-ignore
+          showDrawer={showDrawer}
+          // @ts-ignore
           setNoneOrBlock={setNoneOrBlock}
           drawerWidth={drawerWidth}
+          setDrawerType={setDrawerType}
         />
 
         <Drawerr
@@ -57,6 +71,8 @@ const Root = () => {
           noneOrBlock={noneOrBlock}
           drawerWidth={drawerWidth}
           setmyMOde={setmyMOde}
+          drawerType={drawerType}
+          hideDrawer={hideDrawer}
         />
 
         <Box
