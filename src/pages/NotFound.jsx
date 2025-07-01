@@ -4,6 +4,7 @@ import React from "react";
 
 function NotFound() {
   const theme = useTheme();
+
   return (
     <Box
       sx={{
