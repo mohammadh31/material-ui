@@ -1,6 +1,6 @@
 import { Box, Button, InputAdornment, TextField, styled } from "@mui/material";
 import "./Create.css";
-import React from "react";
+import React, { useState } from "react";
 import { purple } from "@mui/material/colors";
 import { ChevronRight } from "@mui/icons-material";
 
@@ -16,10 +16,15 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const Create = () => {
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState(0);
   // Why <<<component="form">>> ?
   return (
     <Box sx={{ width: "380px" }} component="form">
       <TextField
+        onChange={(eo) => {
+          setTitle(eo.target.value);
+        }}
         fullWidth={true}
         label="Transaction Title"
         sx={{ mt: "22px", display: "block" }}
@@ -30,8 +35,11 @@ const Create = () => {
       />
 
       <TextField
+        onChange={(eo) => {
+          setPrice(Number(eo.target.value));
+        }}
         fullWidth={true}
-        label="Transaction Title"
+        label="Amount"
         id="filled-start-adornment"
         sx={{ mt: "22px", display: "block" }}
         InputProps={{
@@ -40,7 +48,19 @@ const Create = () => {
         variant="filled"
       />
 
-      <ColorButton sx={{ mt: "22px" }} variant="contained">
+      <ColorButton
+        onClick={(params) => {
+          fetch("http://localhost:3100/mydata", {
+            method: "POST",
+            body: JSON.stringify({ title, price }),
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+          });
+        }}
+        sx={{ mt: "22px" }}
+        variant="contained"
+      >
         Submit <ChevronRight />
       </ColorButton>
     </Box>
