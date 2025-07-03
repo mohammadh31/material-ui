@@ -3,6 +3,7 @@ import "./Create.css";
 import React, { useState } from "react";
 import { purple } from "@mui/material/colors";
 import { ChevronRight } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[500]),
@@ -19,8 +20,9 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   // Why <<<component="form">>> ?
+  const navigate = useNavigate();
   return (
-    <Box sx={{ width: "380px" }} component="form">
+    <Box noValidate autoComplete="off" sx={{ width: "380px" }} component="form">
       <TextField
         onChange={(eo) => {
           setTitle(eo.target.value);
@@ -52,10 +54,12 @@ const Create = () => {
         onClick={(params) => {
           fetch("http://localhost:3100/mydata", {
             method: "POST",
-            body: JSON.stringify({ title, price }),
             headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
+              "Content-Type": "application/json",
             },
+            body: JSON.stringify({ price, title }),
+          }).then(() => {
+            navigate("/");
           });
         }}
         sx={{ mt: "22px" }}

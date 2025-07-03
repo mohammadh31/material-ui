@@ -1,9 +1,3 @@
 {
-    "mydata": [
-        {
-            "id": "8021",
-            "title": "food",
-            "price": 15
-        }
-    ]
+  "mydata": []
 }

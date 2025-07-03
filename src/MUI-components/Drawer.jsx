@@ -28,10 +28,10 @@ const Drawerr = ({
   const currentLocateion = useLocation();
 
   const myList = [
-    { text: "Home", icon: <Home />, path: "/" },
-    { text: "Create", icon: <Create />, path: "/create" },
-    { text: "Profile", icon: <Person2 />, path: "/profile" },
-    { text: "Settings", icon: <Settings />, path: "/settings" },
+    { text: "Home", id: 1, icon: <Home />, path: "/" },
+    { text: "Create", id: 2, icon: <Create />, path: "/create" },
+    { text: "Profile", id: 3, icon: <Person2 />, path: "/profile" },
+    { text: "Settings", id: 4, icon: <Settings />, path: "/settings" },
   ];
 
   return (
@@ -78,7 +78,7 @@ const Drawerr = ({
         <Divider />
         {myList.map((param) => {
           return (
-            <ListItem disablePadding>
+            <ListItem disablePadding key={param.id}>
               <ListItemButton
                 sx={{
                   bgcolor:
