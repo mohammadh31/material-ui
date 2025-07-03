@@ -13,12 +13,15 @@ const Home = () => {
       .then((response) => response.json())
       .then((data) => setMyData(data));
     return () => {};
-  }, []);
+  }, [myData]);
 
-  console.log(myData);
+  let totalPrice = 0;
+
   return (
     <Box>
       {myData.map((item) => {
+        // @ts-ignore
+        totalPrice += item.price;
         return (
           <Paper
             key={item.id}
@@ -60,6 +63,9 @@ const Home = () => {
           </Paper>
         );
       })}
+      <Typography variant="h6" mt={4} textAlign={"center"}>
+        You spend $ {totalPrice}
+      </Typography>
     </Box>
   );
 };

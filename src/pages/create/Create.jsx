@@ -51,7 +51,7 @@ const Create = () => {
       />
 
       <ColorButton
-        onClick={(params) => {
+        onClick={() => {
           fetch("http://localhost:3100/mydata", {
             method: "POST",
             headers: {
