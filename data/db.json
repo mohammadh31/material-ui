@@ -1,19 +1,14 @@
 {
   "mydata": [
     {
-      "id": "d538",
-      "price": 13,
-      "title": "moh"
+      "id": "99bd",
+      "price": 10,
+      "title": "water"
     },
     {
-      "id": "c2c4",
-      "price": null,
-      "title": "sam"
-    },
-    {
-      "id": "673f",
-      "price": 12,
-      "title": "sam"
+      "id": "ac72",
+      "price": 3,
+      "title": "apple"
     }
   ]
 }

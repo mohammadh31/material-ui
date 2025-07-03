@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-
 import Appbar from "MUI-components/Appbar";
 import Drawerr from "MUI-components/Drawer";
 import { Box, CssBaseline } from "@mui/material";
@@ -38,21 +37,22 @@ const Root = () => {
       <CssBaseline />
       <div>
         <Appbar
-          // @ts-ignore
-          showDrawer={showDrawer}
-          // @ts-ignore
-          setNoneOrBlock={setNoneOrBlock}
-          drawerWidth={drawerWidth}
-          setDrawerType={setDrawerType}
+          {...{
+            showDrawer,
+            setNoneOrBlock,
+            drawerWidth,
+            setDrawerType,
+          }}
         />
 
         <Drawerr
-          // @ts-ignore
-          noneOrBlock={noneOrBlock}
-          drawerWidth={drawerWidth}
-          setmyMOde={setmyMOde}
-          drawerType={drawerType}
-          hideDrawer={hideDrawer}
+          {...{
+            noneOrBlock,
+            drawerWidth,
+            setmyMOde,
+            drawerType,
+            hideDrawer,
+          }}
         />
 
         <Box
@@ -63,7 +63,6 @@ const Root = () => {
             justifyContent: "center",
             mt: { xs: 5, sm: 8 },
           }}
-          // className="border"
         >
           <Outlet />
         </Box>

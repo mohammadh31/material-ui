@@ -15,8 +15,7 @@ const Home = () => {
       .then((data) => setMyData(data));
     return () => {};
   }, []);
-
-  const handleDelete = ({ item }) => {
+  const handleDelete = (item) => {
     fetch(`http://localhost:3100/mydata/${item.id}`, {
       method: "DELETE",
     });
