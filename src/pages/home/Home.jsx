@@ -7,14 +7,24 @@ import { Close } from "@mui/icons-material";
 
 const Home = () => {
   const [myData, setMyData] = useState([]);
+  console.log(myData);
 
   useEffect(() => {
     fetch("http://localhost:3100/mydata")
       .then((response) => response.json())
       .then((data) => setMyData(data));
     return () => {};
-  }, [myData]);
+  }, []);
 
+  const handleDelete = ({ item }) => {
+    fetch(`http://localhost:3100/mydata/${item.id}`, {
+      method: "DELETE",
+    });
+    const newArray = myData.filter((myObject) => {
+      return myObject.id !== item.id;
+    });
+    setMyData(newArray);
+  };
   let totalPrice = 0;
 
   return (
@@ -52,9 +62,7 @@ const Home = () => {
 
             <IconButton
               onClick={() => {
-                fetch(`http://localhost:3100/mydata/${item.id}`, {
-                  method: "DELETE",
-                });
+                handleDelete(item);
               }}
               sx={{ position: "absolute", top: "0", right: "0" }}
             >
